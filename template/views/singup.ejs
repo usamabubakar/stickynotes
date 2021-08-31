@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/2b9c5e787e.js" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            background: cornflowerblue;
+        }
+
+        .container {
+            background-color: #141E2F;
+            width: 800px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            box-shadow: 15px 15px 15px black;
+            border-radius: 15px;
+        }
+
+        .main {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* background-color: cornflowerblue; */
+        }
+
+        .field {
+            width: 100%;
+        }
+
+        .field input {
+            width: 15rem;
+            height: 35px;
+            background: linear-gradient(#20153D, #342747);
+            border-radius: 10px;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            /* font-weight: bold; */
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+
+            border: none;
+            border: 2px solid black;
+            border-top: none;
+            border-right: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        ::placeholder {
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .field label {
+            font-weight: bold;
+            letter-spacing: 1px;
+            /* margin-bottom: 5px; */
+            /* margin: 5px; */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .one {
+            width: 11rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            /* background-color: royalblue; */
+        }
+
+        .two {
+            padding: 30px;
+            width: 75%;
+            /* height: 100%; */
+            height: 20rem;
+            border-top-left-radius: 48px 50%;
+            border-bottom-left-radius: 48px 50%;
+            background-color: rgba(255, 254, 254, 0.925);
+        }
+
+        .two .btn {
+            width: 8rem;
+            font-weight: bold;
+            background: linear-gradient(#45307c, #5e126d);
+            border: none;
+        }
+
+        .one img {
+            animation: log 2s infinite alternate;
+        }
+
+        @keyframes log {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-40px);
+            }
+        }
+
+        @media (max-width:778px) {
+            .container {
+
+                height: 450px;
+            }
+
+            .two {
+                width: 97%;
+                height: 19rem;
+                margin-top: 10px;
+                padding: 10px;
+                margin-bottom: 10px;
+                margin-left: 10px;
+
+            }
+
+            .one {
+                width: 100%;
+            }
+
+            .field input {
+                width: 15rem;
+                height: 35px;
+                margin-bottom: 10px;
+            }
+
+            .one img {
+
+                width: 100px;
+                height: 100px;
+
+            }
+
+            @keyframes log {
+                0% {
+                    transform: translateX(30px);
+                }
+
+                100% {
+                    transform: translateX(-30px);
+                }
+            }
+
+            .one h5 {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width:575px) {
+
+            /* .container{
+                width: 550px;
+            } */
+            .container {
+                width: 450px;
+                height: 420px;
+            }
+
+            .two {
+                width: 26.5rem;
+
+                /* left: 20px; */
+                height: 17rem;
+            }
+
+            .field input {
+                width: 12rem;
+                height: 30px;
+                margin-bottom: 5px;
+            }
+
+
+        }
+
+        @media (max-width:401px) {
+            .container {
+
+                width: 320px;
+
+                height: 680px;
+            }
+
+            .two {
+                width: 18rem;
+                height: 28rem;
+                border-radius: 20px;
+                box-shadow: 10px 10px 10px rgba(10, 10, 10, 0.849);
+                padding: 20px;
+            }
+
+            .field input {
+                width: 15rem;
+                /* 
+                height: 20px; */
+            }
+
+            .field {
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <%if( sign_chk==1){%>
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'User Already Exist...!'
+
+            })
+        </script>
+        <%}%>
+            <%if( sign_chk==2){%>
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...!',
+                        text: 'Pasword and confirm Password does not match..!'
+
+                    })
+                </script>
+                <%}%>
+                    <div class="main">
+                        <div class="container">
+                            <div class="row  d-flex justify-content-center align-items-center ">
+
+
+                                <div
+                                    class=" text-center one col-md-6 col-sm-12 d-flex flex-column justify-content-center ">
+                                    <img src="log.png" alt="" width="100px" height="100px">
+                                    <h5>Welcome to sticky-notes website</h5>
+                                </div>
+                                <div class="two col-md-6 d-flex flex-column ">
+                                    <div class="text-center">
+                                        <h3 style="font-weight: bold;">Registration</h3>
+                                    </div>
+                                    <form action="" method="POST">
+                                        <div class="field d-flex justify-content-center  ">
+                                            <div style="margin-left: 10px;">
+                                                <label>First Name</label><br>
+                                                <input type="text" placeholder="Enter first name" name="fname">
+                                            </div>
+                                            <div style="margin-left: 10px;">
+                                                <label>Last Name</label><br>
+                                                <input type="text" placeholder="Enter last name" name="lname">
+                                            </div>
+
+                                        </div>
+                                        <div class="field d-flex justify-content-center ">
+                                            <div style="margin-left: 6px;">
+                                                <label>Password</label> <br>
+                                                <input type="password" placeholder="Enter password" name="password">
+                                            </div>
+                                            <div style="margin-left: 10px;">
+                                                <label>Conferm Password</label><br>
+                                                <input type="password" placeholder="Enter confirm password"
+                                                    name="cpassword">
+                                            </div>
+
+                                        </div>
+                                        <div class="field d-flex justify-content-center ">
+                                            <div style="margin-left: 6px;">
+                                                <label>Email Or User Name</label> <br>
+                                                <input type="text" placeholder="Enter user" name="email">
+                                            </div>
+                                            <div style="margin-left: 10px;">
+                                                <label>Phone No</label><br>
+                                                <input type="text" placeholder="Enter password" name="number">
+                                            </div>
+
+                                        </div>
+                                        <div class="text-center">
+                                            <button typee="submit" class="btn btn-danger ">Sign Up</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+                        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+                        crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+                        integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+                        crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+                        integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+                        crossorigin="anonymous"></script>
+</body>
+
+</html>
